@@ -1,6 +1,13 @@
 function sortByDescendingFriendCount(users) {
-  users.sort((a, b) => b.friends.length - a.friends.length);
-  return users;
+  const comparator = (a, b) => b.friends.length - a.friends.length;
+
+  return toSorted(users, comparator);
+}
+
+function toSorted(arr, comparator) {
+  const newArr = arr.slice();
+  newArr.sort(comparator);
+  return newArr;
 }
 
 console.log(
